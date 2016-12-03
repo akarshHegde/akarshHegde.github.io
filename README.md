@@ -1,1 +1,0 @@
-# akarshHegde.github.io
