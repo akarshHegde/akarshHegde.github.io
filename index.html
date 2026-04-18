@@ -1,18 +1,490 @@
 <!doctype html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
-    <script src="js/respond.js"></script>
-    <link rel="stylesheet" src="css/bootstrap.min.css">
-    <link rel="stylesheet" src="css/custom.css">
-</head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Akarsh Hegde is a backend and platform engineer focused on reliable systems, developer experience, and maintainable software delivery."
+    />
+    <title>Akarsh Hegde | Backend and Platform Engineer</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f3efe8;
+        --panel: rgba(255, 250, 242, 0.88);
+        --panel-strong: #fffaf2;
+        --text: #1e1a16;
+        --muted: #5f564a;
+        --border: rgba(30, 26, 22, 0.14);
+        --accent: #1f5f4a;
+        --accent-soft: #dbe9e2;
+        --shadow: 0 24px 80px rgba(31, 26, 22, 0.08);
+        --max-width: 1100px;
+      }
 
-<body>
-<p>Hello Everyone!! Welcome to my website</p>
-<!-- javascript -->
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-</body>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(31, 95, 74, 0.14), transparent 32%),
+          radial-gradient(circle at top right, rgba(145, 116, 80, 0.12), transparent 24%),
+          linear-gradient(180deg, #f6f2ec 0%, #efe8de 100%);
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(calc(100% - 32px), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 36px 0 22px;
+      }
+
+      .hero__card {
+        border: 1px solid var(--border);
+        background: var(--panel);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        border-radius: 28px;
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .nav a {
+        text-decoration: none;
+        color: var(--muted);
+      }
+
+      .hero__content {
+        display: grid;
+        grid-template-columns: 1.4fr 0.9fr;
+        gap: 28px;
+        padding: 42px 24px 28px;
+      }
+
+      .eyebrow {
+        margin: 0 0 12px;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.8rem, 7vw, 5.4rem);
+        line-height: 0.94;
+        letter-spacing: -0.05em;
+      }
+
+      .lede {
+        margin: 20px 0 0;
+        max-width: 58ch;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--muted);
+      }
+
+      .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .button,
+      .button--ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .button {
+        background: var(--text);
+        color: #fffaf2;
+        border-color: var(--text);
+      }
+
+      .button--ghost {
+        background: rgba(255, 250, 242, 0.6);
+        color: var(--text);
+      }
+
+      .summary {
+        display: grid;
+        gap: 14px;
+        align-content: start;
+      }
+
+      .summary__panel,
+      .section,
+      .project,
+      .note {
+        border: 1px solid var(--border);
+        background: var(--panel-strong);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .summary__panel {
+        padding: 20px;
+      }
+
+      .summary__panel h2,
+      .section h2,
+      .project h3,
+      .note h3 {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .summary__panel p,
+      .summary__panel li,
+      .section p,
+      .section li,
+      .project p,
+      .note p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .summary__panel ul,
+      .section ul {
+        margin: 14px 0 0;
+        padding-left: 18px;
+      }
+
+      main {
+        padding-bottom: 48px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 24px;
+      }
+
+      .section__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .section__header p {
+        margin: 8px 0 0;
+        max-width: 64ch;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .project {
+        padding: 22px;
+      }
+
+      .project__eyebrow {
+        margin: 0 0 10px;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .project__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 16px;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .project__links a {
+        text-decoration: none;
+        color: var(--text);
+      }
+
+      .principles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .note {
+        padding: 20px;
+      }
+
+      footer {
+        padding: 10px 0 42px;
+        color: var(--muted);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.95rem;
+      }
+
+      .footer__row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .footer__row a {
+        text-decoration: none;
+      }
+
+      .accent-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        font-size: 0.88rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero__content,
+        .projects,
+        .principles {
+          grid-template-columns: 1fr;
+        }
+
+        .section__header,
+        .topbar,
+        .footer__row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .shell {
+          width: min(calc(100% - 20px), var(--max-width));
+        }
+
+        .hero {
+          padding-top: 14px;
+        }
+
+        .hero__content,
+        .section,
+        .project,
+        .summary__panel,
+        .note {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="shell hero__card">
+        <div class="topbar">
+          <div class="brand">Akarsh Hegde</div>
+          <nav class="nav" aria-label="Primary">
+            <a href="#projects">Selected work</a>
+            <a href="#approach">How I work</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="hero__content">
+          <section>
+            <p class="eyebrow">Backend and platform engineering</p>
+            <h1>Building reliable systems and maintainable delivery paths.</h1>
+            <p class="lede">
+              I am a senior software engineer based in Bangalore, focused on backend and platform work that improves
+              reliability, developer experience, and long-term maintainability. I care about clear interfaces,
+              operational simplicity, and the kind of engineering judgment that helps teams scale without accumulating
+              hidden fragility.
+            </p>
+            <div class="hero__actions">
+              <a class="button" href="https://github.com/akarshHegde">View GitHub</a>
+              <a class="button--ghost" href="mailto:akarshhegde340@gmail.com">akarshhegde340@gmail.com</a>
+            </div>
+          </section>
+          <aside class="summary">
+            <div class="summary__panel">
+              <span class="accent-chip">Current focus</span>
+              <ul>
+                <li>Backend services and platform-adjacent tooling</li>
+                <li>System clarity through modular design and documentation</li>
+                <li>Reliable delivery flows with lightweight operational overhead</li>
+              </ul>
+            </div>
+            <div class="summary__panel">
+              <h2>What this site is for</h2>
+              <p>
+                This page is a curated entry point into the projects that best reflect how I think about software today.
+                Older coursework and exploratory repos still exist on GitHub, but the links below are the strongest
+                representation of my current engineering standards.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell grid">
+      <section class="section" id="projects">
+        <div class="section__header">
+          <div>
+            <h2>Selected work</h2>
+            <p>
+              A small set of repositories chosen for code quality, clarity of ownership, and how well they communicate
+              engineering tradeoffs.
+            </p>
+          </div>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <p class="project__eyebrow">Interactive systems · quality signal</p>
+            <h3>Copper Coil</h3>
+            <p>
+              A browser-based Snake implementation used to demonstrate small-system discipline: isolated game logic,
+              deterministic tests, documented architecture, and GitHub Pages delivery.
+            </p>
+            <div class="project__links">
+              <a href="https://github.com/akarshHegde/Copper-Coil">Repository</a>
+            </div>
+          </article>
+          <article class="project">
+            <p class="project__eyebrow">Database internals · systems exploration</p>
+            <h3>PostgreSQL study fork</h3>
+            <p>
+              A structured set of notes and experiments around PostgreSQL internals including MVCC, deadlocks, buffer
+              replacement, and indexing tradeoffs, retained as a learning artifact with explicit scope.
+            </p>
+            <div class="project__links">
+              <a href="https://github.com/akarshHegde/PostgreSQL">Repository</a>
+            </div>
+          </article>
+          <article class="project">
+            <p class="project__eyebrow">Language tooling · historical artifact</p>
+            <h3>Lexical Analyser</h3>
+            <p>
+              A compact compiler-design project preserved to show early systems-oriented coursework and hands-on work
+              with lexer construction using Lex.
+            </p>
+            <div class="project__links">
+              <a href="https://github.com/akarshHegde/Lexical-Analyser">Repository</a>
+            </div>
+          </article>
+          <article class="project">
+            <p class="project__eyebrow">Graphics · historical artifact</p>
+            <h3>Simulation of Gym</h3>
+            <p>
+              An OpenGL and GLUT coursework project retained as an archive of graphics programming fundamentals rather
+              than a representation of my current production style.
+            </p>
+            <div class="project__links">
+              <a href="https://github.com/akarshHegde/Simulation-of-Gym">Repository</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="approach">
+        <div class="section__header">
+          <div>
+            <h2>How I work</h2>
+            <p>
+              The strongest software teams scale through clear decisions, reliable operating models, and documentation
+              that reduces ambiguity for everyone who joins later.
+            </p>
+          </div>
+        </div>
+        <div class="principles">
+          <article class="note">
+            <h3>Design for change</h3>
+            <p>
+              I prefer small boundaries, readable modules, and explicit tradeoffs over clever abstractions that are hard
+              to operate six months later.
+            </p>
+          </article>
+          <article class="note">
+            <h3>Make quality visible</h3>
+            <p>
+              Tests, deployment notes, and architecture writeups are not polish-only extras. They are the public record
+              of engineering judgment.
+            </p>
+          </article>
+          <article class="note">
+            <h3>Raise team leverage</h3>
+            <p>
+              Good platform and backend work should lower cognitive load for the rest of the team by making the right
+              path easier to follow.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="shell" id="contact">
+      <div class="footer__row">
+        <span>Open to staff-level backend and platform opportunities.</span>
+        <span>
+          <a href="https://github.com/akarshHegde">GitHub</a>
+          ·
+          <a href="mailto:akarshhegde340@gmail.com">Email</a>
+        </span>
+      </div>
+    </footer>
+  </body>
 </html>
